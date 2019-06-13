@@ -1,0 +1,46 @@
+#open visualizer
+/vis/open OGL 800x800
+/vis/drawVolume
+#/vis/viewer/zoom 10
+/vis/viewer/set/viewpointThetaPhi 60 0
+/tracking/storeTrajectory 1
+/vis/scene/add/trajectories smooth
+/vis/scene/endOfEventAction accumulate 
+
+/run/verbose 2
+/tracking/verbose 2
+/event/verbose 2
+
+
+# simulation settings
+
+# /GPS 1
+# /OutputType 0 for all, 1 for simple mode (parent process, process name = 0)
+# /OutputFormat 0: 0 for ASCII 1 for ROOT tree
+# /TrackType: 0 for all, 1 for trackID = 1, 2 for parentID = 1 only
+# /TrackEdep: 0 for all, 1 for eDep > 0.0 keV 
+
+# define general particle source
+
+/gps/particle gamma 
+
+#/gps/pos/type Surface
+#/gps/pos/shape Cylinder
+#/gps/pos/centre 0 0 5.215 cm
+#/gps/pos/radius 0.16 cm
+#/gps/pos/halfz 0.115 cm
+
+#/gps/ang/type iso
+
+/gps/pos/type Point
+/gps/pos/centre 0 0 4.0 cm
+/gps/ang/type focused
+/gps/ang/focuspoint 0 0 0 cm
+
+/gps/ene/type Mono
+/gps/ene/mono 59.5 keV
+
+/run/beamOn 100
+
+/vis/enable
+/vis/viewer/rebuild

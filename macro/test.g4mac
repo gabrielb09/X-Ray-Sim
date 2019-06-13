@@ -1,0 +1,42 @@
+# Macro test.g4mac
+
+/vis/open OGL
+/vis/drawVolume mountPhys
+
+process/list
+
+/Visualization 0
+/CheckOverlap 1
+/SimulationType 0
+/OutputType 0
+/OutputFormat 0
+/TrackType 0
+/TrackEdep 1
+/DetectorType 0
+
+/OutputDirectory output
+
+/GeneralParticleSource 1
+/gps/particle gamma
+/gps/ene/type Mono
+/gps/ene/mono 0.06 MeV
+/gps/pos/type Point
+/gps/pos/centre 0.0 0.0 5.21 cm
+/gps/ang/type iso
+/gps/ang/mintheta 0. deg
+/gps/ang/maxtheta 0. deg
+#/gps/ang/maxtheta 0.0 deg
+
+/OutputFile Am241StraightDownGroove
+/update
+/run/beamOn 1000000
+
+/gps/pos/centre 0.6 0.0 5.21 cm
+/gps/ang/type iso
+/gps/ang/mintheta 0. deg
+/gps/ang/maxtheta 0. deg
+#/gps/ang/maxtheta 0.0 deg
+
+/OutputFile Am241StraightDownStrip
+/update
+/run/beamOn 1000000
